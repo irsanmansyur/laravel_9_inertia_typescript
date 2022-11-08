@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["esnext", "dom"],
+    "paths": {
+      "@ts/*": ["resources/ts/*"]
+    },
+    "types": ["vite/client"]
+  },
+  "include": ["resources/ts/*", "resources/ts/**/*.ts", "resources/ts/**/*.tsx"],
+  "exclude": ["node_modules"]
+}
