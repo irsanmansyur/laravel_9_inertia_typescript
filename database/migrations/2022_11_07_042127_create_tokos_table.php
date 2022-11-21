@@ -18,6 +18,7 @@ return new class extends Migration
             $table->char("name");
             $table->char("logo");
             $table->char("link");
+            $table->char("status");
             $table->timestamps();
         });
     }

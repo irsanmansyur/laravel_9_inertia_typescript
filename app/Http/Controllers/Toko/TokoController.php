@@ -3,17 +3,21 @@
 namespace App\Http\Controllers\Toko;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TokoStoreRequest;
+use App\Http\Resources\TokoResource;
+use App\Http\Services\TokoService;
 use App\Models\Toko;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class TokoController extends Controller
 {
-
-    public function index()
+    public function index(Request $request)
     {
+        $tokos = Toko::latest()->paginate(20);
+        if ($request->ajax() && $request->wantsJson()) return $tokos;
         return Inertia::render("Toko/Master", [
-            "tokos" => Toko::paginate(20)
+            "tokos" => TokoResource::collection($tokos)
         ]);
     }
 
@@ -24,7 +28,7 @@ class TokoController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render("Toko/Add");
     }
 
     /**
@@ -33,9 +37,11 @@ class TokoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+
+    public function store(TokoStoreRequest $tokoStoreRequest)
     {
-        //
+        $toko = TokoService::save($tokoStoreRequest->validated());
+        return to_route("toko.master")->with("success", "Toko berhasil di tambahkan");
     }
 
     /**
@@ -55,21 +61,17 @@ class TokoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Toko $toko)
     {
-        //
+        return Inertia::render("Toko/Edit", [
+            'toko' => new TokoResource($toko)
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(TokoStoreRequest $tokoStoreRequest, Toko $toko)
     {
-        //
+        TokoService::update($tokoStoreRequest->validated(), $toko);
+        return to_route("toko.master")->with("success", "Toko berhasil di update");
     }
 
     /**
@@ -78,8 +80,11 @@ class TokoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Toko $toko)
     {
-        //
+        $statusSuccess = TokoService::delete($toko);
+        if ($statusSuccess) session()->flash("success", "Toko berhasil dihapus");
+        else session()->flash("success", "Toko berhasil dihapus");
+        return to_route("toko.master");
     }
 }

@@ -4,36 +4,44 @@
  * Changes to this file will be lost when the command is run again
  */
 
+// import { EditorState } from "draft-js";
+// const b = { ...EditorState };
 declare namespace App.Models {
+  export type produkLinkType = "id" | "toko_id" | "link";
   export interface ProdukLink {
-    id: number;
-    toko_id: number;
+    id?: number;
+    produk_id?: number;
+    toko_id?: number;
     link: string;
-    created_at: string | null;
-    updated_at: string | null;
+    created_at?: string | null;
+    updated_at?: string | null;
   }
 
   export interface Produk {
-    id: number;
-    kategori_id: number;
+    id?: number;
+    kategori_id?: number;
     name: string;
     alias: string;
-    name_description: string;
-    details: string;
-    how_to_apply: string;
-    ingredients: string;
-    faq: string;
-    created_at: string | null;
-    updated_at: string | null;
+    name_description?: string;
+    details?: string | any = "";
+    how_to_apply?: string | any = "";
+    ingredients?: string | any = "";
+    faq?: string | any = "";
+    created_at?: string | null;
+    updated_at?: string | null;
+    images?: ProdukImage[];
+    variants?: ProdukVariant[];
+    links?: ProdukLink[];
   }
 
   export interface Toko {
-    id: number;
+    id?: number;
     name: string;
-    logo: string;
+    logo: string | null;
     link: string;
-    created_at: string | null;
-    updated_at: string | null;
+    status: string;
+    created_at?: string | null;
+    updated_at?: string | null;
   }
 
   export interface User {
@@ -43,35 +51,38 @@ declare namespace App.Models {
     email_verified_at: string | null;
     password: string;
     remember_token: string | null;
-    created_at: string | null;
-    updated_at: string | null;
+    created_at?: string | null;
+    updated_at?: string | null;
   }
 
   export interface ProdukImage {
-    id: number;
-    produk_id: number;
+    id?: number;
+    produk_id?: number;
     name: string;
-    image: string;
+    image: string | File;
+    image_link?: string | null;
     color: string;
-    created_at: string | null;
-    updated_at: string | null;
+    created_at?: string | null;
+    updated_at?: string | null;
   }
 
+  export type variantType = "name_variant" | "price" | "price_after_diskon" | "qty";
   export interface ProdukVariant {
-    id: number;
+    id?: number;
+    produk_id?: number;
     name_variant: string;
     price: number;
     price_after_diskon: number;
     qty: number;
-    created_at: string | null;
-    updated_at: string | null;
+    created_at?: string | null;
+    updated_at?: string | null;
   }
 
   export interface ProdukKategori {
     id: number;
     name: string;
     description: string;
-    created_at: string | null;
-    updated_at: string | null;
+    created_at?: string | null;
+    updated_at?: string | null;
   }
 }

@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input-custom > div {
+  min-width: 40%;
+}
+div.relative.w-full.min-w-\[200px\] {
+  min-width: 40%;
+}
+
+div.relative.w-full.min-w-\[200px\] > label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

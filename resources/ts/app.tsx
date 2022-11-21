@@ -1,5 +1,5 @@
 import "./bootstrap";
-import "../css/app.css";
+import "@ts/css/styel.css";
 
 import React from "react";
 import { createRoot } from "react-dom/client";
@@ -8,7 +8,8 @@ import { InertiaProgress } from "@inertiajs/progress";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { ThemeProvider } from "@material-tailwind/react";
 
-const appName = window.document.getElementsByTagName("title")[0]?.innerText || "Laravel";
+const appName = window.document.getElementsByTagName("title")[0]?.innerText || "Tantangin";
+console.log(appName);
 
 createInertiaApp({
   title: (title) => `${title} - ${appName}`,

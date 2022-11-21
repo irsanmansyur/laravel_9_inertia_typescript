@@ -38,6 +38,8 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
+            "flash" => fn () => $request->session()->only(['message', 'success', 'danger']),
+            "time_render" => microtime(true) - LARAVEL_START,
             'ziggy' => function () use ($request) {
                 return array_merge((new Ziggy)->toArray(), [
                     'location' => $request->url(),

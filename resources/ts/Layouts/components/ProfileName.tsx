@@ -1,7 +1,8 @@
 import { Link } from "@inertiajs/inertia-react";
 import { Menu, MenuHandler, MenuList, MenuItem, Button } from "@material-tailwind/react";
+import route from "ziggy-js";
 
-export default function ProfileNameButton({ user }) {
+export default function ProfileNameButton({ user }: { user: App.Models.User }) {
   return (
     <Menu
       placement="bottom-end"
@@ -11,7 +12,6 @@ export default function ProfileNameButton({ user }) {
       }}
     >
       <MenuHandler>
-
         <Button variant="gradient" className="flex p-1 sm:p-2 gap-1 sm:gap-2 items-center">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-5 w-5">
             <path

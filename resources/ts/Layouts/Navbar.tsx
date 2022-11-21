@@ -12,7 +12,7 @@ export default function Navbar({ openSideBar, setOpenSideBar }: any) {
   } = usePage().props;
   return (
     <>
-      <nav className="block backdrop-saturate-200 backdrop-blur-2xl bg-opacity-80 border border-white/80 w-full max-w-full px-4 bg-white text-white rounded-xl transition-all sticky top-4 z-40 py-3 shadow-md shadow-blue-gray-500/5">
+      <nav className="block backdrop-saturate-200 backdrop-blur-2xl bg-opacity-80 border border-white/80 w-full max-w-full px-4 bg-white text-white rounded-xl transition-all sticky top-4 z-40 py-3 shadow-md shadow-blue-gray-500/5 border-gray-200">
         <div className="flex flex-col-reverse justify-between gap-6 md:flex-row md:items-center">
           <Breadcrumbs>
             <Link href={route("dashboard")} className="opacity-60">
@@ -50,7 +50,7 @@ export default function Navbar({ openSideBar, setOpenSideBar }: any) {
 const ButtonSidebar = ({ setOpenSideBar }: any) => {
   return (
     <button
-      onClick={(e) => setOpenSideBar((e) => !e)}
+      onClick={(e) => setOpenSideBar((e: boolean) => !e)}
       className="relative middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-blue-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30 grid xl:hidden"
       type="button"
     >
