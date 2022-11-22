@@ -1,0 +1,113 @@
+{
+  "resources/ts/app.tsx": {
+    "file": "assets/app.2da2ca6b.js",
+    "src": "resources/ts/app.tsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/ts/Pages/Auth/Login.tsx",
+      "resources/ts/Pages/Auth/Register.tsx",
+      "resources/ts/Pages/Dashboard.tsx",
+      "resources/ts/Pages/Toko/Add.tsx",
+      "resources/ts/Pages/Toko/Edit.tsx",
+      "resources/ts/Pages/Toko/Master.tsx",
+      "resources/ts/Pages/Welcome.tsx"
+    ],
+    "css": [
+      "assets/app.ee678a51.css"
+    ]
+  },
+  "resources/ts/Pages/Auth/Login.tsx": {
+    "file": "assets/Login.ca83a82e.js",
+    "src": "resources/ts/Pages/Auth/Login.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/ts/app.tsx",
+      "_InputGroup.da432440.js",
+      "_index.m.4f4de470.js"
+    ]
+  },
+  "_InputGroup.da432440.js": {
+    "file": "assets/InputGroup.da432440.js",
+    "imports": [
+      "resources/ts/app.tsx"
+    ]
+  },
+  "_index.m.4f4de470.js": {
+    "file": "assets/index.m.4f4de470.js"
+  },
+  "resources/ts/Pages/Auth/Register.tsx": {
+    "file": "assets/Register.881b5de3.js",
+    "src": "resources/ts/Pages/Auth/Register.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/ts/app.tsx"
+    ]
+  },
+  "resources/ts/Pages/Dashboard.tsx": {
+    "file": "assets/Dashboard.fca430ed.js",
+    "src": "resources/ts/Pages/Dashboard.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_DashboardLayout.7fc30893.js",
+      "resources/ts/app.tsx",
+      "_index.m.4f4de470.js"
+    ]
+  },
+  "_DashboardLayout.7fc30893.js": {
+    "file": "assets/DashboardLayout.7fc30893.js",
+    "imports": [
+      "resources/ts/app.tsx",
+      "_index.m.4f4de470.js"
+    ]
+  },
+  "resources/ts/Pages/Toko/Add.tsx": {
+    "file": "assets/Add.8ad3fae2.js",
+    "src": "resources/ts/Pages/Toko/Add.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/ts/app.tsx",
+      "_InputGroup.da432440.js",
+      "_DashboardLayout.7fc30893.js",
+      "_helpers.931c93d7.js",
+      "_index.m.4f4de470.js"
+    ]
+  },
+  "_helpers.931c93d7.js": {
+    "file": "assets/helpers.931c93d7.js"
+  },
+  "resources/ts/Pages/Toko/Edit.tsx": {
+    "file": "assets/Edit.9c85a061.js",
+    "src": "resources/ts/Pages/Toko/Edit.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/ts/app.tsx",
+      "_InputGroup.da432440.js",
+      "_DashboardLayout.7fc30893.js",
+      "_helpers.931c93d7.js",
+      "_index.m.4f4de470.js"
+    ]
+  },
+  "resources/ts/Pages/Toko/Master.tsx": {
+    "file": "assets/Master.8131f947.js",
+    "src": "resources/ts/Pages/Toko/Master.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/ts/app.tsx",
+      "_DashboardLayout.7fc30893.js",
+      "_index.m.4f4de470.js"
+    ]
+  },
+  "resources/ts/Pages/Welcome.tsx": {
+    "file": "assets/Welcome.03d804ed.js",
+    "src": "resources/ts/Pages/Welcome.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/ts/app.tsx",
+      "_index.m.4f4de470.js"
+    ]
+  },
+  "resources/ts/app.css": {
+    "file": "assets/app.ee678a51.css",
+    "src": "resources/ts/app.css"
+  }
+}
