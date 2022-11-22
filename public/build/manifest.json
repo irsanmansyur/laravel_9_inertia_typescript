@@ -1,33 +1,46 @@
 {
   "resources/ts/app.tsx": {
-    "file": "assets/app.2da2ca6b.js",
+    "file": "assets/app.661b6241.js",
     "src": "resources/ts/app.tsx",
     "isEntry": true,
     "dynamicImports": [
       "resources/ts/Pages/Auth/Login.tsx",
       "resources/ts/Pages/Auth/Register.tsx",
-      "resources/ts/Pages/Dashboard.tsx",
+      "resources/ts/Pages/Produk/Add.tsx",
+      "resources/ts/Pages/Produk/Edit.tsx",
+      "resources/ts/Pages/Produk/Master.tsx",
       "resources/ts/Pages/Toko/Add.tsx",
       "resources/ts/Pages/Toko/Edit.tsx",
       "resources/ts/Pages/Toko/Master.tsx",
-      "resources/ts/Pages/Welcome.tsx"
+      "resources/ts/Pages/Welcome.tsx",
+      "resources/ts/Pages/dashboard/index.tsx",
+      "resources/ts/Pages/kategori/master/Add.tsx",
+      "resources/ts/Pages/kategori/master/Edit.tsx",
+      "resources/ts/Pages/kategori/master/List.tsx"
     ],
     "css": [
-      "assets/app.ee678a51.css"
+      "assets/app.f5f4a559.css"
     ]
   },
   "resources/ts/Pages/Auth/Login.tsx": {
-    "file": "assets/Login.ca83a82e.js",
+    "file": "assets/Login.6aebb177.js",
     "src": "resources/ts/Pages/Auth/Login.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/ts/app.tsx",
-      "_InputGroup.da432440.js",
+      "_Alert.4a667288.js",
+      "_InputGroup.7a035b18.js",
       "_index.m.4f4de470.js"
     ]
   },
-  "_InputGroup.da432440.js": {
-    "file": "assets/InputGroup.da432440.js",
+  "_Alert.4a667288.js": {
+    "file": "assets/Alert.4a667288.js",
+    "imports": [
+      "resources/ts/app.tsx"
+    ]
+  },
+  "_InputGroup.7a035b18.js": {
+    "file": "assets/InputGroup.7a035b18.js",
     "imports": [
       "resources/ts/app.tsx"
     ]
@@ -36,38 +49,99 @@
     "file": "assets/index.m.4f4de470.js"
   },
   "resources/ts/Pages/Auth/Register.tsx": {
-    "file": "assets/Register.881b5de3.js",
+    "file": "assets/Register.993edb99.js",
     "src": "resources/ts/Pages/Auth/Register.tsx",
     "isDynamicEntry": true,
     "imports": [
-      "resources/ts/app.tsx"
-    ]
-  },
-  "resources/ts/Pages/Dashboard.tsx": {
-    "file": "assets/Dashboard.fca430ed.js",
-    "src": "resources/ts/Pages/Dashboard.tsx",
-    "isDynamicEntry": true,
-    "imports": [
-      "_DashboardLayout.7fc30893.js",
+      "_Alert.4a667288.js",
+      "_InputGroup.7a035b18.js",
       "resources/ts/app.tsx",
       "_index.m.4f4de470.js"
     ]
   },
-  "_DashboardLayout.7fc30893.js": {
-    "file": "assets/DashboardLayout.7fc30893.js",
+  "resources/ts/Pages/Produk/Add.tsx": {
+    "file": "assets/Add.5907d824.js",
+    "src": "resources/ts/Pages/Produk/Add.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/ts/app.tsx",
+      "_DashboardLayout.ddd739d4.js",
+      "_react-number-format.es.1c6de62f.js",
+      "_InputGroup.7a035b18.js",
+      "_index.m.4f4de470.js"
+    ]
+  },
+  "_DashboardLayout.ddd739d4.js": {
+    "file": "assets/DashboardLayout.ddd739d4.js",
+    "imports": [
+      "resources/ts/app.tsx",
+      "_index.m.4f4de470.js"
+    ]
+  },
+  "_react-number-format.es.1c6de62f.js": {
+    "file": "assets/react-number-format.es.1c6de62f.js",
+    "imports": [
+      "resources/ts/app.tsx",
+      "_InputGroup.7a035b18.js",
+      "_index.m.4f4de470.js"
+    ],
+    "css": [
+      "assets/react-number-format.b036f2d9.css"
+    ]
+  },
+  "resources/ts/Pages/Produk/Edit.tsx": {
+    "file": "assets/Edit.b863aca8.js",
+    "src": "resources/ts/Pages/Produk/Edit.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_DashboardLayout.ddd739d4.js",
+      "resources/ts/app.tsx",
+      "_index.m.4f4de470.js",
+      "_react-number-format.es.1c6de62f.js",
+      "_sweetalert2.all.22cacb8b.js",
+      "_InputGroup.7a035b18.js"
+    ]
+  },
+  "_sweetalert2.all.22cacb8b.js": {
+    "file": "assets/sweetalert2.all.22cacb8b.js",
+    "imports": [
+      "resources/ts/app.tsx"
+    ]
+  },
+  "resources/ts/Pages/Produk/Master.tsx": {
+    "file": "assets/Master.993c5aaf.js",
+    "src": "resources/ts/Pages/Produk/Master.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/ts/app.tsx",
+      "_DashboardLayout.ddd739d4.js",
+      "_index.esm.08ead791.js",
+      "_index.m.4f4de470.js",
+      "_sweetalert2.all.22cacb8b.js",
+      "_breadcrumbs-home.e4332a8e.js"
+    ]
+  },
+  "_index.esm.08ead791.js": {
+    "file": "assets/index.esm.08ead791.js",
+    "imports": [
+      "_DashboardLayout.ddd739d4.js"
+    ]
+  },
+  "_breadcrumbs-home.e4332a8e.js": {
+    "file": "assets/breadcrumbs-home.e4332a8e.js",
     "imports": [
       "resources/ts/app.tsx",
       "_index.m.4f4de470.js"
     ]
   },
   "resources/ts/Pages/Toko/Add.tsx": {
-    "file": "assets/Add.8ad3fae2.js",
+    "file": "assets/Add.8207dd88.js",
     "src": "resources/ts/Pages/Toko/Add.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/ts/app.tsx",
-      "_InputGroup.da432440.js",
-      "_DashboardLayout.7fc30893.js",
+      "_InputGroup.7a035b18.js",
+      "_DashboardLayout.ddd739d4.js",
       "_helpers.931c93d7.js",
       "_index.m.4f4de470.js"
     ]
@@ -76,29 +150,31 @@
     "file": "assets/helpers.931c93d7.js"
   },
   "resources/ts/Pages/Toko/Edit.tsx": {
-    "file": "assets/Edit.9c85a061.js",
+    "file": "assets/Edit.00cde563.js",
     "src": "resources/ts/Pages/Toko/Edit.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/ts/app.tsx",
-      "_InputGroup.da432440.js",
-      "_DashboardLayout.7fc30893.js",
+      "_InputGroup.7a035b18.js",
+      "_DashboardLayout.ddd739d4.js",
       "_helpers.931c93d7.js",
       "_index.m.4f4de470.js"
     ]
   },
   "resources/ts/Pages/Toko/Master.tsx": {
-    "file": "assets/Master.8131f947.js",
+    "file": "assets/Master.a071a70d.js",
     "src": "resources/ts/Pages/Toko/Master.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/ts/app.tsx",
-      "_DashboardLayout.7fc30893.js",
-      "_index.m.4f4de470.js"
+      "_DashboardLayout.ddd739d4.js",
+      "_index.esm.08ead791.js",
+      "_index.m.4f4de470.js",
+      "_sweetalert2.all.22cacb8b.js"
     ]
   },
   "resources/ts/Pages/Welcome.tsx": {
-    "file": "assets/Welcome.03d804ed.js",
+    "file": "assets/Welcome.852f3115.js",
     "src": "resources/ts/Pages/Welcome.tsx",
     "isDynamicEntry": true,
     "imports": [
@@ -106,8 +182,61 @@
       "_index.m.4f4de470.js"
     ]
   },
+  "resources/ts/Pages/dashboard/index.tsx": {
+    "file": "assets/index.4c92fcf5.js",
+    "src": "resources/ts/Pages/dashboard/index.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/ts/app.tsx",
+      "_breadcrumbs-home.e4332a8e.js",
+      "_DashboardLayout.ddd739d4.js",
+      "_index.m.4f4de470.js"
+    ]
+  },
+  "resources/ts/Pages/kategori/master/Add.tsx": {
+    "file": "assets/Add.429a36f4.js",
+    "src": "resources/ts/Pages/kategori/master/Add.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/ts/app.tsx",
+      "_InputGroup.7a035b18.js",
+      "_breadcrumbs-home.e4332a8e.js",
+      "_DashboardLayout.ddd739d4.js",
+      "_helpers.931c93d7.js",
+      "_index.m.4f4de470.js"
+    ]
+  },
+  "resources/ts/Pages/kategori/master/Edit.tsx": {
+    "file": "assets/Edit.825a37d9.js",
+    "src": "resources/ts/Pages/kategori/master/Edit.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/ts/app.tsx",
+      "_InputGroup.7a035b18.js",
+      "_DashboardLayout.ddd739d4.js",
+      "_helpers.931c93d7.js",
+      "_index.m.4f4de470.js"
+    ]
+  },
+  "resources/ts/Pages/kategori/master/List.tsx": {
+    "file": "assets/List.80e90413.js",
+    "src": "resources/ts/Pages/kategori/master/List.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/ts/app.tsx",
+      "_DashboardLayout.ddd739d4.js",
+      "_index.esm.08ead791.js",
+      "_index.m.4f4de470.js",
+      "_sweetalert2.all.22cacb8b.js",
+      "_breadcrumbs-home.e4332a8e.js"
+    ]
+  },
+  "react-number-format.css": {
+    "file": "assets/react-number-format.b036f2d9.css",
+    "src": "react-number-format.css"
+  },
   "resources/ts/app.css": {
-    "file": "assets/app.ee678a51.css",
+    "file": "assets/app.f5f4a559.css",
     "src": "resources/ts/app.css"
   }
 }

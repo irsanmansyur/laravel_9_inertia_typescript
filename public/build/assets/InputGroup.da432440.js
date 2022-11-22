@@ -1,1 +1,0 @@
-import{j as s,b as r,F as n,a as l}from"./app.2da2ca6b.js";function u({message:a,className:t=""}){return a?s("p",{className:"text-sm text-red-600 "+t,children:a}):null}function i({label:a,error:t,...e}){return r(n,{children:[s("div",{className:"relative w-full  h-11",children:s(l.Input,{error:t,...e,label:a})}),s(u,{message:t,className:"-mt-1"})]})}export{i as I,u as a};

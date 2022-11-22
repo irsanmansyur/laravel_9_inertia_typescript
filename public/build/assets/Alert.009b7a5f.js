@@ -1,1 +1,0 @@
-import{r as t,j as s,b as c}from"./app.0587b6c4.js";function l({message:o,show:e,...a}){const[n,r]=t.exports.useState(e);return t.exports.useEffect(()=>(r(e),()=>{}),[e]),s(t.exports.Fragment,{children:s(c.Alert,{...a,show:n,dismissible:{onClose:()=>r(!1)},children:o})})}export{l as A};
