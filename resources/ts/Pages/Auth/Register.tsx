@@ -1,26 +1,27 @@
-import AlertCustom from "@/Components/Alert";
-import InputGroup from "@/Components/form/InputGroup";
-import { Link, useForm } from "@inertiajs/inertia-react";
-import { useEffect } from "react";
+import AlertCustom from '@ts/Components/Alert';
+import InputGroup from '@ts/Components/form/InputGroup';
+import { Link, useForm } from '@inertiajs/inertia-react';
+import { useEffect } from 'react';
+import route from 'ziggy-js';
 
 export function Register() {
   const { data, setData, post, processing, errors, reset } = useForm({
-    name: "",
-    email: "",
-    password: "",
-    password_confirmation: "",
+    name: '',
+    email: '',
+    password: '',
+    password_confirmation: '',
   });
   useEffect(() => {
     return () => {
-      reset("password", "password_confirmation");
+      reset('password', 'password_confirmation');
     };
   }, []);
   const onHandleChange = (event) => {
-    setData(event.target.name, event.target.type === "checkbox" ? event.target.checked : event.target.value);
+    setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
   };
-  const submit = (e) => {
+  const submit = (e: any) => {
     e.preventDefault();
-    post(route("register"));
+    post(route('register'));
   };
 
   return (
@@ -52,7 +53,7 @@ export function Register() {
               </button>
               <p className="antialiased font-sans text-sm font-light leading-normal text-inherit mt-6 flex justify-center">
                 Already have an account?
-                <Link href={route("login")}>
+                <Link href={route('login')}>
                   <span className="block antialiased font-sans text-sm leading-normal text-blue-500 ml-1 font-bold">Login</span>
                 </Link>
               </p>
