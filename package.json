@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "lint": "eslint . --ext .ts,.tsx"
   },
   "devDependencies": {
     "@headlessui/react": "^1.4.2",
@@ -17,6 +18,7 @@
     "@types/react-dom": "^18.0.8",
     "@types/ziggy-js": "^1.3.2",
     "@vitejs/plugin-react": "^2.0.0",
+    "apexcharts": "3.35.5",
     "autoprefixer": "^10.4.12",
     "axios": "^1.1.2",
     "laravel-vite-plugin": "^0.6.0",
@@ -35,12 +37,21 @@
     "@tinymce/tinymce-react": "^4.2.0",
     "@types/draft-js": "^0.11.9",
     "@types/react-draft-wysiwyg": "^1.13.4",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
     "draft-convert": "^2.1.13",
     "draft-js": "^0.11.7",
     "draftjs-to-html": "^0.9.1",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.11",
+    "prettier": "^2.7.1",
+    "react-apexcharts": "^1.4.0",
     "react-draft-wysiwyg": "^1.15.0",
     "react-icons": "^4.6.0",
-    "react-number-format": "^5.1.1",
+    "react-number-format": "^5.1.2",
     "react-select": "^5.6.0",
     "sweetalert2": "^11.6.7",
     "tinymce": "^6.2.0"

@@ -1,5 +1,5 @@
-import { useState, Fragment, useEffect } from "react";
-import { Alert } from "@material-tailwind/react";
+import { useState, Fragment, useEffect } from 'react';
+import { Alert } from '@material-tailwind/react';
 
 type Props = {
   message?: string;

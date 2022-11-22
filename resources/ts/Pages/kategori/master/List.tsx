@@ -1,6 +1,6 @@
 import { Inertia } from '@inertiajs/inertia';
 import { Link } from '@inertiajs/inertia-react';
-import { Breadcrumbs, Button, IconButton } from '@material-tailwind/react';
+import { Breadcrumbs, Button, Chip, IconButton } from '@material-tailwind/react';
 import DashboardLayout from '@ts/Layouts/DashboardLayout';
 import { PaginateLaravelInterface } from '@ts/utils/interfaces/PaginateLaravelInterface';
 import React from 'react';
@@ -9,13 +9,13 @@ import route from 'ziggy-js';
 import Swal from 'sweetalert2';
 import BreadcrumbsHome from '@ts/Layouts/components/breadcrumbs-home';
 
-export default function Produk({ produks }: { produks: PaginateLaravelInterface<App.Models.Produk> }) {
+export default function ListKategori({ produk_kategoris }: { produk_kategoris: PaginateLaravelInterface<App.Models.ProdukKategori> }) {
   return (
     <DashboardLayout breadcrumbs={<Bread />}>
       <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md mt-16">
         <div className="relative bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr from-blue-600 to-blue-400 text-white shadow-blue-500/40 shadow-lg -mt-6 mb-8 p-6 flex justify-between items-center">
-          <h6 className="block antialiased tracking-normal font-sans text-base font-semibold leading-relaxed text-white">Daftar Produks</h6>
-          <Link href={route('produk.master.add')}>
+          <h6 className="block antialiased tracking-normal font-sans text-base font-semibold leading-relaxed text-white">Daftar Kategori</h6>
+          <Link href={route('produk_kategori.add')}>
             <IconButton variant="outlined" color="white">
               <GrAdd />
             </IconButton>
@@ -26,10 +26,13 @@ export default function Produk({ produks }: { produks: PaginateLaravelInterface<
             <thead>
               <tr>
                 <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
-                  <p className="block antialiased font-sans text-[11px] font-bold uppercase text-blue-gray-400">Nama Produk</p>
+                  <p className="block antialiased font-sans text-[11px] font-bold uppercase text-blue-gray-400">Nama Kategori</p>
                 </th>
                 <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
-                  <p className="block antialiased font-sans text-[11px] font-bold uppercase text-blue-gray-400">Kategori</p>
+                  <p className="block antialiased font-sans text-[11px] font-bold uppercase text-blue-gray-400">Deskripsi Kategori</p>
+                </th>
+                <th className="border-b border-blue-gray-50 py-3 px-5 text-left">
+                  <p className="block antialiased font-sans text-[11px] font-bold uppercase text-blue-gray-400">Jumlah Produk</p>
                 </th>
                 <th className="border-b border-blue-gray-50 py-3 px-5 text-center">
                   <p className="block antialiased font-sans text-[11px] font-bold uppercase text-blue-gray-400">Action</p>
@@ -37,10 +40,10 @@ export default function Produk({ produks }: { produks: PaginateLaravelInterface<
               </tr>
             </thead>
             <tbody>
-              {produks.data.map((produk) => (
-                <TrTable produk={produk} key={produk.id} />
+              {produk_kategoris.data.map((kategori) => (
+                <TrTable kategori={kategori} key={kategori.id} />
               ))}
-              {produks.data.length < 1 && (
+              {produk_kategoris.data.length < 1 && (
                 <tr>
                   <td colSpan={999} className="text-center p-4 rounded text-red-500">
                     Maaf data kosong
@@ -55,8 +58,8 @@ export default function Produk({ produks }: { produks: PaginateLaravelInterface<
   );
 }
 
-const TrTable = ({ produk }: { produk: App.Models.Produk }) => {
-  const deleteProduk = (e: React.MouseEvent) => {
+const TrTable = ({ kategori }: { kategori: App.Models.ProdukKategori }) => {
+  const deleteToko = (e: React.MouseEvent) => {
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -67,20 +70,23 @@ const TrTable = ({ produk }: { produk: App.Models.Produk }) => {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        Inertia.delete(route('produk.master.delete', produk.id));
+        Inertia.delete(route('produk_kategori.delete', kategori.id));
       }
     });
   };
   return (
     <tr>
-      <td className="py-3 px-5 border-b border-blue-gray-50">{produk.name}</td>
-      <td className="py-3 px-5 border-b border-blue-gray-50">{produk.kategori?.name}</td>
+      <td className="py-3 px-5 border-b border-blue-gray-50">{kategori.name}</td>
+      <td className="py-3 px-5 border-b border-blue-gray-50">{kategori.description}</td>
+      <td className="py-3 px-5 border-b border-blue-gray-50">
+        <Chip value={kategori.produks_count + ''} />
+      </td>
       <td className="py-3 px-5 border-b border-blue-gray-50">
         <div className="flex justify-center items-center gap-1">
-          <Link href={route('produk.master.edit', produk.id)}>
+          <Link href={route('produk_kategori.edit', kategori.id)}>
             <Button size="sm">Edit</Button>
           </Link>
-          <Button size="sm" onClick={deleteProduk} variant="outlined" color="red">
+          <Button size="sm" onClick={deleteToko} variant="outlined" color="red">
             Delete
           </Button>
         </div>
@@ -93,9 +99,9 @@ const Bread = () => {
   return (
     <Breadcrumbs>
       <BreadcrumbsHome />
-      <a href="#">
-        <span>Produk Master</span>
-      </a>
+      <Link href={route('produk_kategori.master')}>
+        <span>Kategori Produk</span>
+      </Link>
     </Breadcrumbs>
   );
 };

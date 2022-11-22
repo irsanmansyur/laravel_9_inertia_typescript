@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Kategori\KategoriController;
 use App\Http\Controllers\Produk\ProduKController;
 use App\Http\Controllers\Produk\ProdukImageController;
+use App\Http\Controllers\Produk\ProdukKategoryController;
 use App\Http\Controllers\Toko\TokoController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -28,9 +30,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, "index"])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::prefix("admin/master-kategori")->middleware("auth")->group(function () {
     Route::get('/', [KategoriController::class, "index"])->name('kategori.master');
@@ -73,6 +73,15 @@ Route::prefix("admin/master-product-variant")->middleware("auth")->group(functio
 
 Route::prefix("admin/master-product-link")->middleware("auth")->group(function () {
     Route::post('/edit/{produk}', [ProdukLinkController::class, "updateMany"])->name("produk_link.update-many");
+});
+
+Route::prefix("admin/master-product-kategori")->middleware("auth")->group(function () {
+    Route::get('/', [ProdukKategoryController::class, "index"])->name("produk_kategori.master");
+    Route::get('/add', [ProdukKategoryController::class, "add"])->name("produk_kategori.add");
+    Route::post('/add', [ProdukKategoryController::class, "store"]);
+    Route::get('/edit/{produkKategori}', [ProdukKategoryController::class, "edit"])->name("produk_kategori.edit");
+    Route::post('/edit/{produkKategori}', [ProdukKategoryController::class, "update"]);
+    Route::delete('/edit/{produkKategori}', [ProdukKategoryController::class, "destroy"])->name("produk_kategori.delete");
 });
 
 require __DIR__ . '/auth.php';

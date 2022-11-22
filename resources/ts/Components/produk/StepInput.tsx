@@ -1,11 +1,11 @@
-import { Button, CardFooter } from "@material-tailwind/react";
-import { setDataInterface } from "@ts/utils/interfaces/inertia.interfaces";
-import React, { useState } from "react";
-import InputProdukDetails from "./InputProdukDetails";
-import InputProdukImages from "./InputProdukImages";
-import InputProdukInfo from "./InputProdukInfo";
-import InputProdukLinks from "./InputProdukLinks";
-import InputProdukVariants from "./InputProdukVariants";
+import { Button, CardFooter } from '@material-tailwind/react';
+import { setDataInterface } from '@ts/utils/interfaces/inertia.interfaces';
+import React, { useState } from 'react';
+import InputProdukDetails from './InputProdukDetails';
+import InputProdukImages from './InputProdukImages';
+import InputProdukInfo from './InputProdukInfo';
+import InputProdukLinks from './InputProdukLinks';
+import InputProdukVariants from './InputProdukVariants';
 
 type Props = {
   data: App.Models.Produk;
@@ -19,7 +19,7 @@ export default function StepInput({ errors, data, setData }: Props) {
       return (
         <>
           <InputProdukInfo errors={errors} data={data} setData={setData} />
-          <CardFooter className="flex  gap-7 pt-2">
+          <CardFooter className="flex   justify-end pt-2">
             <Button type="button" onClick={() => setStep(2)}>
               Next
             </Button>
@@ -30,7 +30,7 @@ export default function StepInput({ errors, data, setData }: Props) {
       return (
         <>
           <InputProdukDetails errors={errors} data={data} setData={setData} />
-          <CardFooter className="flex  gap-7 pt-2">
+          <CardFooter className="flex   justify-between pt-2">
             <Button variant="outlined" color="red" type="button" onClick={() => setStep(1)}>
               Back
             </Button>
@@ -44,7 +44,7 @@ export default function StepInput({ errors, data, setData }: Props) {
       return (
         <>
           <InputProdukImages errors={errors} data={data} setData={setData} />
-          <CardFooter className="flex  gap-7 pt-2">
+          <CardFooter className="flex justify-between pt-2">
             <Button variant="outlined" color="red" type="button" onClick={() => setStep(2)}>
               Back
             </Button>
@@ -58,14 +58,14 @@ export default function StepInput({ errors, data, setData }: Props) {
       return (
         <>
           <InputProdukVariants errors={errors} data={data} setData={setData} />
-          <CardFooter className="flex  gap-7 pt-2">
+          <CardFooter className="flex  justify-between pt-2">
             <Button variant="outlined" color="red" type="button" onClick={() => setStep(3)}>
               Back
             </Button>
-            <Button type="button" onClick={() => setStep(5)}>
+            <Button typeof="string" type="button" onClick={() => setStep(5)}>
               Next
             </Button>
-          </CardFooter> 
+          </CardFooter>
         </>
       );
     case 5:
@@ -76,7 +76,9 @@ export default function StepInput({ errors, data, setData }: Props) {
             <Button variant="outlined" color="red" type="button" onClick={() => setStep(4)}>
               Back
             </Button>
-            <Button type="submit">Save</Button>
+            <Button type="submit" color="light-blue">
+              Save
+            </Button>
           </CardFooter>
         </>
       );

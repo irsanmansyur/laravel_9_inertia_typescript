@@ -7,7 +7,7 @@
 // import { EditorState } from "draft-js";
 // const b = { ...EditorState };
 declare namespace App.Models {
-  export type produkLinkType = "id" | "toko_id" | "link";
+  export type produkLinkType = 'id' | 'toko_id' | 'link';
   export interface ProdukLink {
     id?: number;
     produk_id?: number;
@@ -19,14 +19,15 @@ declare namespace App.Models {
 
   export interface Produk {
     id?: number;
+    kategori?: ProdukKategori;
     kategori_id?: number;
     name: string;
     alias: string;
     name_description?: string;
-    details?: string | any = "";
-    how_to_apply?: string | any = "";
-    ingredients?: string | any = "";
-    faq?: string | any = "";
+    details?: string | object = '';
+    how_to_apply?: string | object = '';
+    ingredients?: string | object = '';
+    faq?: string | object = '';
     created_at?: string | null;
     updated_at?: string | null;
     images?: ProdukImage[];
@@ -66,7 +67,7 @@ declare namespace App.Models {
     updated_at?: string | null;
   }
 
-  export type variantType = "name_variant" | "price" | "price_after_diskon" | "qty";
+  export type variantType = 'name_variant' | 'price' | 'price_after_diskon' | 'qty';
   export interface ProdukVariant {
     id?: number;
     produk_id?: number;
@@ -82,6 +83,7 @@ declare namespace App.Models {
     id: number;
     name: string;
     description: string;
+    produks_count?: number;
     created_at?: string | null;
     updated_at?: string | null;
   }

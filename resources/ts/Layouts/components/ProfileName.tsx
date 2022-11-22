@@ -1,6 +1,7 @@
-import { Link } from "@inertiajs/inertia-react";
-import { Menu, MenuHandler, MenuList, MenuItem, Button } from "@material-tailwind/react";
-import route from "ziggy-js";
+import { Link } from '@inertiajs/inertia-react';
+import { Menu, MenuHandler, MenuList, MenuItem, Button } from '@material-tailwind/react';
+import { BiLogOutCircle } from 'react-icons/bi';
+import route from 'ziggy-js';
 
 export default function ProfileNameButton({ user }: { user: App.Models.User }) {
   return (
@@ -25,7 +26,8 @@ export default function ProfileNameButton({ user }: { user: App.Models.User }) {
       </MenuHandler>
       <MenuList className="p-1">
         <MenuItem>
-          <Link href={route("logout")} method="post" as="button">
+          <Link href={route('logout')} className="w-full text-left flex gap-2 items-center" method="post" as="button">
+            <BiLogOutCircle className="text-red-500 h-4 w-4" />
             Log Out
           </Link>
         </MenuItem>

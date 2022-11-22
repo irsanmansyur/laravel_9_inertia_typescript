@@ -16,7 +16,7 @@ class ProduKController extends Controller
 
     public function index()
     {
-        $produks = Produk::paginate(20);
+        $produks = Produk::with("kategori:id,name")->paginate(20);
         return Inertia::render("Produk/Master", compact("produks"));
     }
 

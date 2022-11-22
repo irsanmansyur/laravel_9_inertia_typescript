@@ -21,6 +21,6 @@
     },
     "types": ["vite/client"]
   },
-  "include": ["resources/ts/*", "resources/ts/**/*.ts", "resources/ts/**/*.tsx", "resources/ts/Layouts/index.tss"],
+  "include": ["resources/ts/*", "resources/ts/**/*.ts", "resources/ts/**/*.tsx", "resources/ts/Layouts/index.tss", "resources/ts/Components/dashboard"],
   "exclude": ["node_modules"]
 }
