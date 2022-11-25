@@ -5,6 +5,9 @@ use App\Http\Controllers\Kategori\KategoriController;
 use App\Http\Controllers\Produk\ProduKController;
 use App\Http\Controllers\Produk\ProdukImageController;
 use App\Http\Controllers\Produk\ProdukKategoryController;
+use App\Http\Controllers\Produk\ProdukLinkController;
+use App\Http\Controllers\Produk\ProdukVariantController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\Toko\TokoController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -82,6 +85,13 @@ Route::prefix("admin/master-product-kategori")->middleware("auth")->group(functi
     Route::get('/edit/{produkKategori}', [ProdukKategoryController::class, "edit"])->name("produk_kategori.edit");
     Route::post('/edit/{produkKategori}', [ProdukKategoryController::class, "update"]);
     Route::delete('/edit/{produkKategori}', [ProdukKategoryController::class, "destroy"])->name("produk_kategori.delete");
+});
+
+
+Route::prefix("admin/setting")->middleware("auth", "role:super admin")->group(function () {
+    Route::get('', [SettingController::class, "index"])->name("settings");
+    Route::post('/add', [SettingController::class, "store"])->name("settings.add");
+    Route::post('/edit/{setting}', [SettingController::class, "update"])->name("settings.edit");
 });
 
 require __DIR__ . '/auth.php';

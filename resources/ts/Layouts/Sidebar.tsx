@@ -5,12 +5,12 @@ import { BiCategoryAlt } from 'react-icons/bi';
 import route from 'ziggy-js';
 import { AiFillDashboard } from 'react-icons/ai';
 
-export default function Sidebar({ openSideBar, setOpenSideBar }: any) {
+export default function Sidebar({ setting_app, openSideBar, setOpenSideBar }: { setting_app: App.Models.Setting; openSideBar: any; setOpenSideBar: any }) {
   return (
     <aside className={`bg-gradient-to-br from-blue-gray-800 to-blue-gray-900 fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0 ${openSideBar ? 'translate-x-0' : '-translate-x-80'}`}>
       <div className="relative border-b border-white/20">
         <a className="flex items-center gap-4 py-6 px-8" href="#/">
-          <img src={'/images/vincidy.png'} className="inline-block relative object-cover object-center rounded-md" />
+          <img src={typeof setting_app.options.logo == 'string' ? setting_app.options.logo : ''} className="inline-block relative object-cover object-center rounded-md" />
           {/* <h6 className="block antialiased tracking-normal font-sans text-base font-semibold leading-relaxed text-white">Material Tailwind React</h6> */}
         </a>
         <button

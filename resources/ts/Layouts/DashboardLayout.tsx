@@ -15,12 +15,12 @@ type Props = {
 };
 export default function DashboardLayout({ children, breadcrumbs, title = 'Welcome' }: Props) {
   const [openSideBar, setOpenSideBar] = useState(null);
-  const { flash, time_render } = usePage<PropsInertiaInterface>().props;
+  const { flash, time_render, settings_app } = usePage<PropsInertiaInterface>().props;
   return (
     <>
       <Head title={title} />
       <div className="min-h-screen bg-blue-gray-50/50">
-        <Sidebar openSideBar={openSideBar} setOpenSideBar={setOpenSideBar} />
+        <Sidebar setting_app={settings_app} openSideBar={openSideBar} setOpenSideBar={setOpenSideBar} />
         <div className="p-4 xl:ml-80">
           <Navbar breadcrumbs={breadcrumbs} openSideBar={openSideBar} setOpenSideBar={setOpenSideBar} />
           <ToggleSide />

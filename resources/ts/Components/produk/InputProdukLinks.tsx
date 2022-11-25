@@ -1,11 +1,10 @@
-import { CardBody, IconButton, Input } from "@material-tailwind/react";
-import { getTokoAll } from "@ts/utils/fetch-data/TokoFetch";
-import { setDataInterface } from "@ts/utils/interfaces/inertia.interfaces";
-import React, { useEffect, useRef, useState } from "react";
-import { FaPlus } from "react-icons/fa";
-import { NumberFormatValues, NumericFormat } from "react-number-format";
-import InputError from "../InputError";
-import SelectToko from "./SelectToko";
+import { CardBody, IconButton, Input } from '@material-tailwind/react';
+import { getTokoAll } from '@ts/utils/fetch-data/TokoFetch';
+import { setDataInterface } from '@ts/utils/interfaces/inertia.interfaces';
+import React, { useEffect, useRef, useState } from 'react';
+import { FaPlus } from 'react-icons/fa';
+import InputError from '../InputError';
+import SelectToko from './SelectToko';
 
 type Props = {
   errors: any;
@@ -22,11 +21,11 @@ export default function InputProdukLinks({ errors, data, setData }: Props) {
     let newLinks = [...data.links];
     let link = newLinks[index];
     link[name] = e.target.value;
-    setData("links", newLinks);
+    setData('links', newLinks);
   };
   const tambahLinks = () => {
     if (!data.links) return;
-    setData("links", [...data.links, { toko_id: 0, link: "" }]);
+    setData('links', [...data.links, { toko_id: 0, link: '' }]);
   };
 
   useEffect(() => {
@@ -52,14 +51,14 @@ export default function InputProdukLinks({ errors, data, setData }: Props) {
                   let newLinks = [...data.links];
                   let link = newLinks[i];
                   link.toko_id = selected.value;
-                  setData("links", newLinks);
+                  setData('links', newLinks);
                 }}
                 tokos={tokos}
               />
             </div>
             <div className="w-full min-w-[100px]">
               <div>Link Produk</div>
-              <Input error={errors[`links.${i}.link`] ? true : false} label="Link" value={link.link} onChange={(e) => handleInputChange(e, i, "link")} />
+              <Input error={errors[`links.${i}.link`] ? true : false} label="Link" value={link.link} onChange={(e) => handleInputChange(e, i, 'link')} />
               <InputError message={errors[`links.${i}.link`]} className="mt-1" />
             </div>
           </div>

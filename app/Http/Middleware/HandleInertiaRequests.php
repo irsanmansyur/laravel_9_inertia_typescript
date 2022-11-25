@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Resources\SettingResource;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
@@ -34,10 +35,12 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request)
     {
+        $setting = new SettingResource(getSettingApp());
         return array_merge(parent::share($request), [
             'auth' => [
                 'user' => $request->user(),
             ],
+            "settings_app" => $setting->toArray($request),
             "flash" => fn () => $request->session()->only(['message', 'success', 'danger']),
             "time_render" => microtime(true) - LARAVEL_START,
             'ziggy' => function () use ($request) {

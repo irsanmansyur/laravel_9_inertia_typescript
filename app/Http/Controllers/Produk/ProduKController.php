@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProdukStoreRequest;
 use App\Http\Requests\ProdukUpdateRequest;
 use App\Http\Resources\ProdukResource;
+use App\Http\Services\FileService;
 use App\Http\Services\ProdukService;
 use App\Models\Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
 class ProduKController extends Controller
@@ -86,8 +88,21 @@ class ProduKController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Produk $produk)
     {
-        //
+        DB::beginTransaction();
+        try {
+            $produk->images()->delete();
+            $produk->variants()->delete();
+            $produk->links()->delete();
+            foreach ($produk->images as $image) {
+                FileService::deleteFile($$image->image, "upload/produk");
+            }
+            $produk->delete();
+            DB::commit();
+            return back(302)->with("danger", "Produk berhasil di hapus");
+        } catch (\Throwable $th) {
+            return back(302)->with("danger", "Produk gagal di hapus");
+        }
     }
 }

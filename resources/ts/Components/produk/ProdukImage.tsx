@@ -1,17 +1,17 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react';
 
-export default function ProdukImage({ onChange, src }: any) {
+export default function ProdukImage({ onChange, src, index }: any) {
   const refPreview = useRef<HTMLImageElement>(null);
   function handleImageChange(e: React.ChangeEvent<HTMLInputElement>) {
     if (!refPreview.current || !e.target.files) return;
     const src = URL.createObjectURL(e.target.files[0]);
     refPreview.current.src = src;
-    refPreview.current.style.display = "block";
-    onChange(e.target.files[0]);
+    refPreview.current.style.display = 'block';
+    onChange(e.target.files[0], index);
   }
   useEffect(() => {
     if (!refPreview.current || !src) return;
-    if (typeof src == "string") refPreview.current.src = src;
+    if (typeof src == 'string') refPreview.current.src = src;
 
     return () => {};
   }, []);

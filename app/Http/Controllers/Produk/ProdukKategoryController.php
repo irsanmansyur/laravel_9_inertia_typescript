@@ -36,6 +36,6 @@ class ProdukKategoryController extends Controller
     public function destroy(ProdukKategori $produkKategori)
     {
         $produkKategori->delete();
-        return to_route("produk_kategori.master")->with(["produkKategori" => $produkKategori, "success" => "Kategori Produk berhasil di tambahkan"]);
+        return to_route("produk_kategori.master")->with(["produkKategori" => $produkKategori, "danger" => "Kategori Produk berhasil di hapus"]);
     }
 }

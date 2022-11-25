@@ -12,6 +12,7 @@ export type setDataInterface<T> = setDataByObject<T> & setDataByMethod<T> & setD
 export interface PropsInertiaInterface extends Page<PageProps> {
   props: {
     auth: Function;
+    settings_app: App.Models.Setting;
     flash: Function;
     time_render: number;
     laravelVersion: String;

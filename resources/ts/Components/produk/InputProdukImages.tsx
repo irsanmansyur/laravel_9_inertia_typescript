@@ -1,11 +1,11 @@
-import { CardBody, IconButton, Input } from "@material-tailwind/react";
-import { setDataInterface } from "@ts/utils/interfaces/inertia.interfaces";
-import React, { useRef } from "react";
-import { FaPlus } from "react-icons/fa";
-import ProdukImage from "./ProdukImage";
-import SelectColor from "./SelectColor";
-import { FaTrash } from "react-icons/fa";
-import InputError from "../InputError";
+import { CardBody, IconButton, Input } from '@material-tailwind/react';
+import { setDataInterface } from '@ts/utils/interfaces/inertia.interfaces';
+import React, { useRef } from 'react';
+import { FaPlus } from 'react-icons/fa';
+import ProdukImage from './ProdukImage';
+import SelectColor from './SelectColor';
+import { FaTrash } from 'react-icons/fa';
+import InputError from '../InputError';
 
 type Props = {
   errors: any;
@@ -20,7 +20,7 @@ export default function InputProdukImages({ errors, data, setData }: Props) {
     let newImages = [...data.images];
     let image = newImages[index];
     image.name = e.target.value;
-    setData("images", newImages);
+    setData('images', newImages);
   };
 
   function handleImageChange(file: File, index: number) {
@@ -28,12 +28,13 @@ export default function InputProdukImages({ errors, data, setData }: Props) {
 
     let newImages = [...data.images];
     let image = newImages[index];
+
     image.image = file;
-    setData("images", newImages);
+    setData('images', newImages);
   }
   const tambahImages = () => {
     if (!data.images) return;
-    setData("images", [...data.images, { name: "", color: "", image: "" }]);
+    setData('images', [...data.images, { name: '', color: '', image: '' }]);
   };
 
   return (
@@ -47,8 +48,8 @@ export default function InputProdukImages({ errors, data, setData }: Props) {
                 className="mt-1"
                 onClick={(e) =>
                   setData(
-                    "images",
-                    data.images?.filter((img, ind) => ind !== i)
+                    'images',
+                    data.images?.filter((img, ind) => ind !== i),
                   )
                 }
               >

@@ -21,3 +21,6 @@ export namespace Laravel.Interface {
 export interface resourceLaraveInterface<T> {
   data: T;
 }
+export interface InertiaBaseProps {
+
+}

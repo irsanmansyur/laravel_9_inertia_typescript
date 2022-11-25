@@ -5,7 +5,6 @@ import DashboardLayout from '@ts/Layouts/DashboardLayout';
 import { kFormatter } from '@ts/utils/formatters/number-formatter';
 import React from 'react';
 import { FaProductHunt, FaStoreAlt } from 'react-icons/fa';
-import { NumericFormat } from 'react-number-format';
 
 interface PropsDashboard {
   produk_count: number;

@@ -1,49 +1,18 @@
-import React, { useState, Fragment, useEffect } from "react";
-import { Alert } from "@material-tailwind/react";
-import { colorsType } from "@ts/utils";
-
-export default function FlashMessage({ show: s, flash }: any) {
-  const [show, setShow] = useState(s);
-  const [data, setData] = useState<{ type: colorsType; message: string }>({
-    type: "blue",
-    message: "",
-  });
+import React, { useEffect } from 'react';
+import { toast, ToastContainer, ToastOptions } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+export default function FlashMessage({ flash, second = 5 }: any) {
   useEffect(() => {
     if (Object.keys(flash).length < 1) return;
-    setShow(true);
+
+    let toastOptions: ToastOptions = { position: 'top-right', autoClose: second * 1000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, theme: 'colored' };
     for (const f in flash) {
       const message = flash[f];
-      if (f == "message") {
-        setData({ type: "blue", message: message });
-        break;
-      }
-      if (f == "danger") {
-        setData({ type: "red", message: message });
-        break;
-      }
-      if (f == "success") {
-        setData({ type: "light-blue", message: message });
-        break;
-      }
+      if (f == 'message') toast.info(message, toastOptions);
+      if (f == 'danger') toast.error(message, toastOptions);
+      if (f == 'success') toast.success(message, toastOptions);
     }
   }, [flash]);
 
-  return (
-    <Fragment>
-      <Alert
-        className="mt-4"
-        show={show === true}
-        color={data?.type}
-        animate={{
-          mount: { y: 0 },
-          unmount: { y: 100 },
-        }}
-        dismissible={{
-          onClose: () => setShow(false),
-        }}
-      >
-        {data?.message}
-      </Alert>
-    </Fragment>
-  );
+  return <ToastContainer position="top-right" autoClose={second * 1000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="colored" />;
 }

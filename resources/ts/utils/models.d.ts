@@ -87,4 +87,19 @@ declare namespace App.Models {
     created_at?: string | null;
     updated_at?: string | null;
   }
+
+  export interface Setting {
+    id?: number;
+    user_id: number;
+    user: User;
+    options: SettingOption;
+    'options.logo'?: string;
+    'options.name'?: string;
+    'options.alamat'?: string;
+  }
+  export interface SettingOption {
+    logo?: string | File;
+    name: string;
+    alamat: string;
+  }
 }
