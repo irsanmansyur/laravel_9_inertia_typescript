@@ -14,3 +14,8 @@ div.relative.w-full.min-w-\[200px\] > label {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+a.mx-auto.flex.items-center.justify-center.gap-2 {
+  display: none !important;
+  height: 0;
+  width: 0;
+}

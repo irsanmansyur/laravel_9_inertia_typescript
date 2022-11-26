@@ -1,5 +1,4 @@
-import './bootstrap';
-import '@ts/css/styel.css';
+import '@ts/css/public.css';
 
 import React from 'react';
 import { createRoot } from 'react-dom/client';
@@ -7,18 +6,19 @@ import { createInertiaApp } from '@inertiajs/inertia-react';
 import { InertiaProgress } from '@inertiajs/progress';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ThemeProvider } from '@material-tailwind/react';
+import FrontendLayout from './Layouts/frontendLayout';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Tantangin';
 console.log(appName);
 
 createInertiaApp({
   title: (title) => `${title} - ${appName}`,
-  resolve: (name) => resolvePageComponent(`./Pages/${name}.tsx`, import.meta.glob('./Pages/**/*.tsx')),
+  resolve: (name) => resolvePageComponent(`./src/${name}Page.tsx`, import.meta.glob('./src/**/*Page.tsx')),
   setup({ el, App, props }) {
     const root = createRoot(el);
     root.render(
       <ThemeProvider>
-        <App {...props} />
+        <FrontendLayout {...props.initialPage.props} component={<App {...props} />} />
       </ThemeProvider>,
     );
   },

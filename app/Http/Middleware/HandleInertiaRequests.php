@@ -4,8 +4,11 @@ namespace App\Http\Middleware;
 
 use App\Http\Resources\SettingResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
+use Illuminate\Foundation\Application;
+
 
 class HandleInertiaRequests extends Middleware
 {
@@ -39,7 +42,12 @@ class HandleInertiaRequests extends Middleware
         return array_merge(parent::share($request), [
             'auth' => [
                 'user' => $request->user(),
+                'can' => $request->user() ? $request->user()->getPermissionArray() : []
             ],
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'laravelVersion' => Application::VERSION,
+            'phpVersion' => PHP_VERSION,
             "settings_app" => $setting->toArray($request),
             "flash" => fn () => $request->session()->only(['message', 'success', 'danger']),
             "time_render" => microtime(true) - LARAVEL_START,

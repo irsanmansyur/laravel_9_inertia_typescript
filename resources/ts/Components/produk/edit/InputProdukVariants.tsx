@@ -1,7 +1,7 @@
 import { useForm } from '@inertiajs/inertia-react';
 import { Button, IconButton, Input } from '@material-tailwind/react';
 import InputError from '@ts/Components/InputError';
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { NumberFormatValues, NumericFormat } from 'react-number-format';
