@@ -16,7 +16,8 @@ yarn-error.log
 /.vscode
 
 
-node_modules/
+/node_modules
+/vendor
 
 .prettierrc.js
 .eslintrc.js
