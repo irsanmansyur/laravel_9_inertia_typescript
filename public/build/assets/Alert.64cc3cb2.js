@@ -1,0 +1,1 @@
+import{f as t,j as r,d as c}from"./index.aa1d9ee1.js";function l({message:o,show:e,...a}){const[n,s]=t.exports.useState(e);return t.exports.useEffect(()=>(s(e),()=>{}),[e]),r(t.exports.Fragment,{children:r(c.Alert,{...a,show:n,dismissible:{onClose:()=>s(!1)},children:o})})}export{l as A};
