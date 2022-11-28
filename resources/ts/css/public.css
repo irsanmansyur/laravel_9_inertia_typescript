@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Roboto+Mono:ital,wght@0,600;1,400;1,500&display=swap');
+
 @font-face {
   font-family: 'sweetly_scentedregular';
   src: url('./fonts/sweetly_scented_demo-webfont.woff2') format('woff2'), url('./fonts/sweetly_scented_demo-webfont.woff') format('woff');

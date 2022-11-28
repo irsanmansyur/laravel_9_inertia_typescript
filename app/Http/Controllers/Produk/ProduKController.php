@@ -16,11 +16,12 @@ use Inertia\Inertia;
 class ProduKController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
         $produks = Produk::with("kategori:id,name")->paginate(20);
         return Inertia::render("Produk/Master", compact("produks"));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -44,15 +45,15 @@ class ProduKController extends Controller
         return to_route("produk.master")->with("success", "Produk telah di insert");
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(Produk $produk)
     {
-        //
+        Inertia::setRootView("public");
+        $produk->load(["kategori:id,name,root_parent", "variants", "images", "links" => function ($q) {
+            $q->with("toko");
+        }]);
+        return Inertia::render("produk/detail", [
+            "produk" => new ProdukResource($produk)
+        ]);
     }
 
     /**

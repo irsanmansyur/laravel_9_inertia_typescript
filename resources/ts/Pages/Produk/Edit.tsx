@@ -1,7 +1,6 @@
 import React from "react";
 import DashboardLayout from "@ts/Layouts/DashboardLayout";
 import { Card, CardHeader, Tab, TabPanel, Tabs, TabsBody, TabsHeader } from "@material-tailwind/react";
-import { useForm } from "@inertiajs/inertia-react";
 import { Laravel } from "@ts/utils/interfaces/PaginateLaravelInterface";
 import ProdukDetail from "@ts/Components/produk/StepInputEdit";
 import InputProdukImages from "@ts/Components/produk/edit/InputProdukImages";

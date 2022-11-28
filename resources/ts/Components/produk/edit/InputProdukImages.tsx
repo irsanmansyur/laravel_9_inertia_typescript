@@ -1,12 +1,12 @@
-import { Inertia } from "@inertiajs/inertia";
-import { usePage } from "@inertiajs/inertia-react";
-import { Button, CardBody, CardFooter, IconButton, Input } from "@material-tailwind/react";
-import React, { useEffect, useState } from "react";
-import { FaPlus } from "react-icons/fa";
-import Swal from "sweetalert2";
-import route from "ziggy-js";
-import ProdukImage from "../ProdukImage";
-import CardProdukImage from "./CardProdukImage";
+import { Inertia } from '@inertiajs/inertia';
+import { usePage } from '@inertiajs/inertia-react';
+import { Button, CardBody, CardFooter, IconButton, Input } from '@material-tailwind/react';
+import React, { useEffect, useState } from 'react';
+import { FaPlus } from 'react-icons/fa';
+import Swal from 'sweetalert2';
+import route from 'ziggy-js';
+import ProdukImage from '../ProdukImage';
+import CardProdukImage from './CardProdukImage';
 
 type Props = {
   images?: App.Models.ProdukImage[];
@@ -15,19 +15,19 @@ export default function InputProdukImages({ images: img = [] }: Props) {
   const { errors } = usePage().props;
   const [images, setImages] = useState(img);
   const tambahImages = () => {
-    setImages([...images, { name: "", color: "", image: "", produk_id: img[0].produk_id }]);
+    setImages([...images, { name: '', color: '', image: '', produk_id: img[0].produk_id }]);
   };
 
   const onDelete = (image: App.Models.ProdukImage, i: number) => {
     if (!image.id) return setImages(images.filter((im, index) => index != i));
 
     Swal.fire({
-      title: "Apakah anda yakin?",
-      icon: "question",
+      title: 'Apakah anda yakin?',
+      icon: 'question',
       showCancelButton: true,
       showConfirmButton: true,
     }).then((res) => {
-      if (res.isConfirmed) Inertia.delete(route("produk_image.delete", image.id));
+      if (res.isConfirmed) Inertia.delete(route('produk_image.delete', image.id));
     });
   };
   useEffect(() => {

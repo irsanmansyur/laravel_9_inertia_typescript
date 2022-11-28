@@ -17,10 +17,11 @@ export namespace Laravel.Interface {
   export interface Model<T> {
     data: T;
   }
+  export interface Pagination<T> {
+    data: T;
+  }
 }
 export interface resourceLaraveInterface<T> {
   data: T;
 }
-export interface InertiaBaseProps {
-
-}
+export interface InertiaBaseProps {}

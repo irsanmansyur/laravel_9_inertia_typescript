@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Kategori\KategoriController;
+use App\Http\Controllers\Produk\FrontendProdukController;
+use App\Http\Controllers\Produk\ProduKController;
+use App\Models\ProdukKategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +21,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/produks', [FrontendProdukController::class, "list"])->name('produk.list');
+
+
+
+Route::get('/kategori', [KategoriController::class, "list"])->name('kategori.list');
+Route::get('/kategori-children/{kategori}', [KategoriController::class, "children"])->name('kategori.children');

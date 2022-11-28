@@ -9,8 +9,12 @@ class ProdukResource extends JsonResource
 
     public function toArray($request)
     {
-        return array_merge(parent::toArray($request), [
-            "images" => ProdukImageResource::collection($this->images)
+        $data = parent::toArray($request);
+        if (data_get($data, "links"))
+            $data["links"] = ProdukLinkResource::collection($this->links);
+
+        return array_merge($data, [
+            "images" => ProdukImageResource::collection($this->images),
         ]);
     }
 }

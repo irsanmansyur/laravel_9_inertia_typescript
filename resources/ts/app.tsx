@@ -9,7 +9,6 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ThemeProvider } from '@material-tailwind/react';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Tantangin';
-console.log(appName);
 
 createInertiaApp({
   title: (title) => `${title} - ${appName}`,

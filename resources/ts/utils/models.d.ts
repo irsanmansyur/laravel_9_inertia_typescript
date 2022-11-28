@@ -12,6 +12,7 @@ declare namespace App.Models {
     id?: number;
     produk_id?: number;
     toko_id?: number;
+    toko: Toko;
     link: string;
     created_at?: string | null;
     updated_at?: string | null;
@@ -19,7 +20,7 @@ declare namespace App.Models {
 
   export interface Produk {
     id?: number;
-    kategori?: ProdukKategori;
+    kategori: ProdukKategori;
     kategori_id?: number;
     name: string;
     alias: string;
@@ -30,15 +31,16 @@ declare namespace App.Models {
     faq?: string | object = '';
     created_at?: string | null;
     updated_at?: string | null;
-    images?: ProdukImage[];
-    variants?: ProdukVariant[];
-    links?: ProdukLink[];
+    images: ProdukImage[] = [];
+    variants: ProdukVariant[] = [];
+    links: ProdukLink[] = [];
   }
 
   export interface Toko {
     id?: number;
     name: string;
     logo: string | null;
+    logo_url: string = '';
     link: string;
     status: string;
     created_at?: string | null;
@@ -61,7 +63,7 @@ declare namespace App.Models {
     produk_id?: number;
     name: string;
     image: string | File;
-    image_link?: string | null;
+    image_link: string = '';
     color: string;
     created_at?: string | null;
     updated_at?: string | null;
@@ -81,9 +83,12 @@ declare namespace App.Models {
 
   export interface ProdukKategori {
     id: number;
+    level: number = 0;
     name: string;
+    root_parent: number = 0;
     description: string;
     produks_count?: number;
+    childrens: ProdukKategori[] = [];
     created_at?: string | null;
     updated_at?: string | null;
   }

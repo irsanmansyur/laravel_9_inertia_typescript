@@ -10,6 +10,11 @@ module.exports = withMT({
       fontFamily: {
         sans: ['Nunito', ...defaultTheme.fontFamily.sans],
         sweetly_scentedregular: ['sweetly_scentedregular', ...defaultTheme.fontFamily.sans],
+        robotoMono: ['Roboto Mono', 'monospace'],
+        patrickHand: ['Patrick Hand', 'cursive'],
+      },
+      colors: {
+        primary: '#D97706',
       },
     },
   },

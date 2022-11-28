@@ -9,7 +9,6 @@ import { ThemeProvider } from '@material-tailwind/react';
 import FrontendLayout from './Layouts/frontendLayout';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Tantangin';
-console.log(appName);
 
 createInertiaApp({
   title: (title) => `${title} - ${appName}`,

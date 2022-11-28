@@ -9,17 +9,22 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { Link } from '@inertiajs/inertia-react';
 import ItemProduk from '@ts/Components/produk/itemProduk';
+import { getDataProduks } from './data/produks-data';
 
 export default function SliderProduct() {
+  const [produks, setProduks] = useState<Laravel.Interface.Pagination<App.Models.Produk>>();
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
   const [slidePerView, setSlidePerView] = useState(3);
   useEffect(() => {
     function windowResize() {
-      if (window.innerWidth < 400) setSlidePerView(3);
+      if (window.innerWidth < 420) setSlidePerView(3);
       else if (window.innerWidth < 768) setSlidePerView(4);
       else setSlidePerView(5);
     }
+    getDataProduks().then((resp) => {
+      setProduks(resp.data.produks);
+    });
     windowResize();
     window.addEventListener('resize', windowResize);
     return () => {
@@ -29,7 +34,7 @@ export default function SliderProduct() {
   return (
     <div className="card-product">
       <div className="card-product-header">
-        <span className="font-mono font-bold text-2xl font-sweetly_scentedregular tracking-widest">Somethinc New</span>
+        <span className=" font-bold text-2xl font-sweetly_scentedregular tracking-widest">Somethinc New</span>
         <div className="link-all top-4">
           <Link href="#link" className="border-b hover:border-b-blue-500 transition-colors duration-300">
             see all
@@ -49,9 +54,9 @@ export default function SliderProduct() {
           scrollbar={{ draggable: true, hide: true }}
           loop={true}
         >
-          {[1, 2, 3, 4, 5, 6, 7, 8, 89].map((produk) => (
-            <SwiperSlide key={produk}>
-              <ItemProduk />
+          {produks?.data.map((produk) => (
+            <SwiperSlide key={produk.id}>
+              <ItemProduk produk={produk} />
             </SwiperSlide>
           ))}
         </Swiper>

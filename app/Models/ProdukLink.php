@@ -9,4 +9,8 @@ class ProdukLink extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    public function toko()
+    {
+        return $this->belongsTo(Toko::class, "toko_id")->withDefault();
+    }
 }
