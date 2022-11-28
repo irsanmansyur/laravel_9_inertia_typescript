@@ -279,13 +279,13 @@
       "_helpers.931c93d7.js"
     ]
   },
-  "DashboardLayout.css": {
-    "file": "assets/DashboardLayout.2a37359d.css",
-    "src": "DashboardLayout.css"
-  },
   "react-number-format.css": {
     "file": "assets/react-number-format.b036f2d9.css",
     "src": "react-number-format.css"
+  },
+  "DashboardLayout.css": {
+    "file": "assets/DashboardLayout.2a37359d.css",
+    "src": "DashboardLayout.css"
   },
   "resources/ts/app.css": {
     "file": "assets/app.6bd06da1.css",
