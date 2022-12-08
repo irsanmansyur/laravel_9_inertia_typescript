@@ -20,15 +20,15 @@ declare namespace App.Models {
 
   export interface Produk {
     id?: number;
-    kategori: ProdukKategori;
+    kategori?: ProdukKategori;
     kategori_id?: number;
     name: string;
     alias: string;
     name_description?: string;
-    details?: string | object = '';
-    how_to_apply?: string | object = '';
-    ingredients?: string | object = '';
-    faq?: string | object = '';
+    details?: string = '';
+    how_to_apply?: string = '';
+    ingredients?: string = '';
+    faq?: string = '';
     created_at?: string | null;
     updated_at?: string | null;
     images: ProdukImage[] = [];
@@ -86,11 +86,14 @@ declare namespace App.Models {
     level: number = 0;
     name: string;
     root_parent: number = 0;
+    parent_id: number = null;
     description: string;
     produks_count?: number;
     childrens: ProdukKategori[] = [];
+    all_childrens: ProdukKategori[] = [];
     created_at?: string | null;
     updated_at?: string | null;
+    show_home?: boolean = false;
   }
 
   export interface Setting {
@@ -101,10 +104,18 @@ declare namespace App.Models {
     'options.logo'?: string;
     'options.name'?: string;
     'options.alamat'?: string;
+    'options.email'?: string;
   }
   export interface SettingOption {
     logo?: string | File;
     name: string;
     alamat: string;
+    email: string;
+  }
+  export interface Faq {
+    id?: number;
+    title: string;
+    status: FaqStatus;
+    description: string;
   }
 }

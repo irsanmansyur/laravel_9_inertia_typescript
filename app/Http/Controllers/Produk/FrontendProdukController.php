@@ -53,7 +53,7 @@ class FrontendProdukController extends Controller
                 else if (request()->sort == "highest_price")
                     $builder->orderBy("produk_variants.price", "DESC");
             })
-            ->select("produks.id")
+            ->select("produks.*")
             ->paginate(20);
         return response()->json([
             "produks" =>  ProdukResource::collection($produks)->response()->getData()

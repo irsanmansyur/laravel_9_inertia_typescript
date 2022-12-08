@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('produk_variants', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("produk_id")->constrained("produks")->cascadeOnDelete();
             $table->char("name_variant");
             $table->integer("price");
             $table->integer("price_after_diskon");

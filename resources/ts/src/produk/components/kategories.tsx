@@ -3,13 +3,23 @@ import { BsCheck } from 'react-icons/bs';
 import { getKategoriAll } from '../data/produks-data';
 
 export default function KategoriesList({ kategori, setKategori }: { kategori: App.Models.ProdukKategori | undefined; setKategori: any }) {
+  const [widtWindow, setWidtWindow] = useState<number>(window.innerWidth);
+
   const [kategories, setKategories] = useState<App.Models.ProdukKategori[]>([]);
   useEffect(() => {
-    getKategoriAll().then((resp) => {
-      setKategories(resp.data.kategories);
-    });
+    const windowResize = () => {
+      setWidtWindow(window.innerWidth);
+    };
+    window.addEventListener('resize', windowResize);
+    if (widtWindow > 400) {
+      getKategoriAll().then((resp) => {
+        setKategories(resp.data.kategories);
+      });
+    }
     if (kategori) setKategori(kategori);
-    return () => {};
+    return () => {
+      window.removeEventListener('resize', windowResize);
+    };
   }, []);
 
   return (

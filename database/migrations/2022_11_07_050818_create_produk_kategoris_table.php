@@ -17,6 +17,9 @@ return new class extends Migration
             $table->id();
             $table->char("name");
             $table->string("description");
+            $table->integer("root_parent")->nullable();
+            $table->integer("parent_id")->nullable();
+            $table->boolean("show_home")->nullable()->default(false);
             $table->timestamps();
         });
     }

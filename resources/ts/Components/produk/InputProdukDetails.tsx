@@ -1,8 +1,9 @@
-import { setDataByKeyValuePair, setDataByMethod, setDataByObject } from "@inertiajs/inertia-react";
-import { CardBody, Textarea } from "@material-tailwind/react";
-import React from "react";
-import EditorContainer from "../form/EditorCustom";
-import InputGroup from "../form/InputGroup";
+import { setDataByKeyValuePair, setDataByMethod, setDataByObject } from '@inertiajs/inertia-react';
+import { CardBody } from '@material-tailwind/react';
+import { Produk } from '@ts/utils/fetch-data/produk-data';
+import React, { useEffect, useState } from 'react';
+import InputError from '../InputError';
+import EditorContainerTiny from './editor-container.tiny';
 
 type Props = {
   errors: Record<keyof App.Models.Produk, string>;
@@ -10,13 +11,37 @@ type Props = {
   setData: setDataByObject<App.Models.Produk> & setDataByMethod<App.Models.Produk> & setDataByKeyValuePair<App.Models.Produk>;
 };
 export default function InputProdukDetails({ errors, data, setData }: Props) {
+  const [images, setImages] = useState([]);
+  useEffect(() => {
+    Produk.data.getDataImagesEditor().then((resp) => {
+      setImages(resp.data.data);
+    });
+    return () => {};
+  }, []);
+
   return (
     <CardBody>
       <div className="produk-details-input">
-        <EditorContainer error={errors.details} htmlText={data.details || ""} onChange={(htmlText: any) => setData("details", htmlText)} label="Details" className={"border"} />
-        <EditorContainer error={errors.how_to_apply} htmlText={data.how_to_apply} onChange={(htmlText: any) => setData("how_to_apply", htmlText)} label="How to apply" className={"border"} />
-        <EditorContainer error={errors.ingredients} htmlText={data.ingredients} onChange={(htmlText: any) => setData("ingredients", htmlText)} label="Ingredients" className={"border"} />
-        <EditorContainer error={errors.faq} htmlText={data.faq} onChange={(htmlText: any) => setData("faq", htmlText)} label="Faq" className={"border"} />
+        <div className="">
+          <label>Details</label>
+          <EditorContainerTiny images={images} textHtml={data.details} onChange={(htmlText) => setData('details', htmlText)} />
+          <InputError message={errors.details} />
+        </div>
+        <div className="">
+          <label>How To Apply</label>
+          <EditorContainerTiny images={images} textHtml={data.how_to_apply} onChange={(htmlText) => setData('how_to_apply', htmlText)} />
+          <InputError message={errors.how_to_apply} />
+        </div>
+        <div className="">
+          <label>Inggredients</label>
+          <EditorContainerTiny images={images} textHtml={data.ingredients} onChange={(htmlText) => setData('ingredients', htmlText)} />
+          <InputError message={errors.ingredients} />
+        </div>
+        <div className="">
+          <label>Faq</label>
+          <EditorContainerTiny images={images} textHtml={data.faq} onChange={(htmlText) => setData('faq', htmlText)} />
+          <InputError message={errors.faq} />
+        </div>
       </div>
     </CardBody>
   );

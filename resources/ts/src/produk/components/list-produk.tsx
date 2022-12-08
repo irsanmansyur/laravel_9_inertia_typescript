@@ -1,11 +1,13 @@
 import { Inertia } from '@inertiajs/inertia';
 import { Alert, Option, Select } from '@material-tailwind/react';
 import React, { useEffect, useRef, useState } from 'react';
+import styled from 'styled-components';
 import route from 'ziggy-js';
 import { getDataProduks } from '../data/produks-data';
 import CardRelatedProduk from './card-related.produk';
+import CategoriListPopup from './categori-list-popup';
 
-export default function ListProduk({ kategori, produks: prdks }: { kategori?: App.Models.ProdukKategori; produks: Laravel.Interface.Pagination<App.Models.Produk> }) {
+export default function ListProduk({ kategori, setKategori, produks: prdks }: { kategori?: App.Models.ProdukKategori; produks: Laravel.Interface.Pagination<App.Models.Produk>; setKategori: any }) {
   const [sort, setSort] = useState<string>('newest');
   const [produks, setProduks] = useState(prdks);
 
@@ -23,11 +25,14 @@ export default function ListProduk({ kategori, produks: prdks }: { kategori?: Ap
   }, [kategori, sort]);
 
   return (
-    <div id="produk-list">
+    <ProdukListStyle id="produk-list">
       <div className="produk-list-header flex justify-between items-center py-3">
-        <div className="title text-xl font-bold font-robotoMono">{!kategori ? 'All' : kategori.name}</div>
-        <div className="">
-          <Select label="Sort by" value="newest" onChange={(value) => setSort(value + '')} className="text-[12px] w-[130px]  px-1 md:w-[200px] py-1">
+        <div>
+          <div className="title text-sm md:text-xl font-bold font-robotoMono">{!kategori ? 'All' : kategori.name}</div>
+        </div>
+        <div className="flex justify-center items-center gap-2" id="produk-filter">
+          <CategoriListPopup kategori={kategori} setKategori={setKategori} />
+          <Select label="Sort by" value="newest" onChange={(value) => setSort(value + '')} className="text-[12px] w-[100px]  px-1 md:w-[200px] py-1">
             <Option value="newest">Newest</Option>
             <Option value="lowest_price">Lowest Price</Option>
             <Option value="highest_price">Highest Price</Option>
@@ -36,7 +41,7 @@ export default function ListProduk({ kategori, produks: prdks }: { kategori?: Ap
       </div>
       <div className="produk-list-header">
         {!produks || produks.data.length < 1 ? (
-          <Alert className="w-full text-center" variant="gradient">
+          <Alert className="w-full text-center to-amber-50 from-amber-200" variant="gradient" color="amber">
             empty product
           </Alert>
         ) : (
@@ -47,6 +52,20 @@ export default function ListProduk({ kategori, produks: prdks }: { kategori?: Ap
           </div>
         )}
       </div>
-    </div>
+    </ProdukListStyle>
   );
 }
+
+const ProdukListStyle = styled.div`
+  @media only screen and (max-width: 400px) {
+    #produk-filter > div {
+      width: 100px !important;
+    }
+    #produk-filter ul {
+      padding: 5px;
+    }
+    #produk-filter ul > li {
+      padding: 5px;
+    }
+  }
+`;

@@ -5,12 +5,13 @@ import { PropsInertiaBaseInterface } from '@ts/utils/interfaces/inertia.interfac
 
 export default function FrontendLayout({ component, ...props }: any) {
   const { settings_app, auth }: PropsInertiaBaseInterface = props;
-
   return (
-    <div>
+    <div className="relative h-screen overflow-hidden">
       <NavbarTop setting={settings_app} auth={auth} />
-      <main className="px-2 md:px-0 min-h-[90vh] bg-white">{component}</main>
-      <Footer setting={settings_app} />
+      <div className="flex h-full flex-col justify-between overflow-y-auto pt-14 sm:pt-24">
+        <main>{component}</main>
+        <Footer setting={settings_app} />
+      </div>
     </div>
   );
 }

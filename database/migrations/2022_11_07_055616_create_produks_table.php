@@ -19,10 +19,10 @@ return new class extends Migration
             $table->char("name");
             $table->char("alias");
             $table->string("name_description");
-            $table->string("details");
-            $table->string("how_to_apply");
-            $table->string("ingredients");
-            $table->string("faq");
+            $table->text("details");
+            $table->text("how_to_apply");
+            $table->text("ingredients");
+            $table->text("faq");
             $table->timestamps();
         });
     }

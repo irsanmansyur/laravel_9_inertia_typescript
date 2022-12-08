@@ -41,7 +41,8 @@
       "Tests\\": "tests/"
     },
     "files": [
-      "app/Helpers/MyHelper.php"
+      "app/Helpers/MyHelper.php",
+      "app/Constanta/index.php"
     ]
   },
   "scripts": {

@@ -1,6 +1,7 @@
 import { Link, useForm } from '@inertiajs/inertia-react';
-import { Breadcrumbs, Button, Card, CardBody, CardFooter, CardHeader } from '@material-tailwind/react';
+import { Breadcrumbs, Button, Card, CardBody, CardFooter, CardHeader, Radio } from '@material-tailwind/react';
 import InputGroup from '@ts/Components/form/InputGroup';
+import InputError from '@ts/Components/InputError';
 import BreadcrumbsHome from '@ts/Layouts/components/breadcrumbs-home';
 import DashboardLayout from '@ts/Layouts/DashboardLayout';
 import { backOnClick } from '@ts/utils/helpers';
@@ -60,7 +61,11 @@ export default function Add() {
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardBody>
-            <SelectKategori />
+            <div className="mb-4">
+              <label className="text-gray-600">Parent Id</label>
+              <SelectKategori onChange={(value) => setData('parent_id', value)} />
+              <InputError message={errors.parent_id} />
+            </div>
             <div className="flex flex-col md:flex-row md:gap-2 mb-3">
               <div className="w-full md:w-1/2 mb-4">
                 <InputGroup error={errors.name} value={data.name} label="Nama Kategori" onChange={(e: React.ChangeEvent<HTMLInputElement>) => setData('name', e.target.value)} />
@@ -68,6 +73,10 @@ export default function Add() {
               <div className="w-full md:w-1/2 ">
                 <InputGroup error={errors.description} value={data.description} label="Deskripsi Kategori" onChange={(e: React.ChangeEvent<HTMLInputElement>) => setData('description', e.target.value)} />
               </div>
+            </div>
+            <div className="flex gap-10">
+              <Radio id="html" name="type" onChange={(e) => setData('show_home', true)} label="Show in Home" defaultChecked={data.show_home} />
+              <Radio id="react" name="type" onChange={(e) => setData('show_home', false)} label="Not Show" defaultChecked={!data.show_home} />
             </div>
           </CardBody>
           <CardFooter className="flex  gap-7 pt-2">

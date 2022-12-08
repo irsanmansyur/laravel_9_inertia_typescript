@@ -37,4 +37,5 @@ return array(
     '320163ac6b93aebe3dc25b60a0533d56' => $vendorDir . '/spatie/laravel-ignition/src/helpers.php',
     '377b22b161c09ed6e5152de788ca020a' => $vendorDir . '/spatie/laravel-permission/src/helpers.php',
     'c01203beecb6ad4ab68387093161dc71' => $baseDir . '/app/Helpers/MyHelper.php',
+    '566d5f28cdee80414c36aa99e37548a8' => $baseDir . '/app/Constanta/index.php',
 );

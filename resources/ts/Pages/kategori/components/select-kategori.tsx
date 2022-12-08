@@ -2,15 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
 import { getListKategori } from '../data';
 
-export default function SelectKategori() {
+export default function SelectKategori({ onChange, value }: { value: number; onChange: (value: number) => void }) {
   const [options, setOptions] = useState<any[]>([]);
-  const [kategories, setKategories] = useState<App.Models.ProdukKategori[]>([]);
   useEffect(() => {
     getListKategori().then((res) => {
-      setKategories(res.kategories);
       setOptions(res.options);
     });
     return () => {};
   }, []);
-  return <Select onChange={(e) => console.log(e)} options={options} />;
+  return <Select value={options.filter((option) => option.value == value)} onChange={(opt) => onChange(opt.value)} options={options} />;
 }

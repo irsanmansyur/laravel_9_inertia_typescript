@@ -4,7 +4,7 @@ namespace App\Http\Services;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
-
+use SplFileInfo;
 
 /**
  *
@@ -24,5 +24,13 @@ class FileService
         $file_path =  $folder . "/" . $file;
         if (File::exists($file_path))
             File::delete($file_path);
+    }
+    static function listFilePublic(string $path)
+    {
+        $files = File::allFiles(public_path($path));
+        $filesCollection = collect($files);
+        return $filesCollection->map(function (SplFileInfo $file, $i) use ($path) {
+            return   ["title" => $file->getFilename(), "value" => asset($path . "/" . $file->getFilename())];
+        });
     }
 }

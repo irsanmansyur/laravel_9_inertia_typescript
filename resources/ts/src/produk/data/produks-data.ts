@@ -8,5 +8,5 @@ export const getKategoriChildrent = async (id: number) => {
   return await axios.get<{ data: App.Models.ProdukKategori[] }>(route('kategori.children', id));
 };
 export const getKategoriAll = async () => {
-  return await axios.get<{ kategories: App.Models.ProdukKategori[] }>(route('kategori.list') + '?type=all');
+  return await axios.get<{ kategories: App.Models.ProdukKategori[] }>(route('kategori.list'));
 };

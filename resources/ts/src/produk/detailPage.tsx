@@ -3,6 +3,7 @@ import BreadcrumbsFrontend from '@ts/Layouts/frontend/breadcrumb';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import route from 'ziggy-js';
+import DetailsProduk from './components/details-produk';
 import SliderRelatedRroduk from './components/slider-related-produk';
 import { getKategoriChildrent } from './data/produks-data';
 import ImageSlide from './details/imageSlide';
@@ -23,11 +24,11 @@ export default function detailPage({ produk }: { produk: Laravel.Interface.Resou
 
   const breadcrumb = kategories.map((ktg) => {
     if (ktg.id == produk.data.kategori_id) return { text: ktg.name, active: true, link: route('produk.all') + `?kategori_id=${ktg.id}` };
-    return { text: ktg.name, active: false, link: route('produk.all') + `?kategori_id=${produk.data.kategori_id}` };
+    return { text: ktg.name, active: false, link: route('produk.all') + `?kategori_id=${ktg.id}` };
   });
   return (
     <div className="py-3">
-      <div className="max-w-screen-xl w-full mx-auto ">
+      <div className="max-w-screen-xl w-full mx-auto px-3">
         <BreadcrumbsFrontend breadcrumb={breadcrumb} />
         <div className="flex w-full sm:flex-row  flex-col">
           <div className="md:w-2/5">
@@ -62,10 +63,10 @@ export default function detailPage({ produk }: { produk: Laravel.Interface.Resou
                 mount: { y: 0 },
                 unmount: { y: 250 },
               }}
-              className="py-3 min-h-[250px]"
+              className="py-3 "
             >
               <TabPanel value={'details'}>
-                <div dangerouslySetInnerHTML={{ __html: produk.data.details + '' }} />
+                <DetailsProduk details={produk.data.details + ''} />
               </TabPanel>
               <TabPanel value={'how_to_apply'}>
                 <div dangerouslySetInnerHTML={{ __html: produk.data.how_to_apply + '' }} />
@@ -77,7 +78,7 @@ export default function detailPage({ produk }: { produk: Laravel.Interface.Resou
           </Tabs>
         </StyleTabs>
       </div>
-      <div className="max-w-screen-xl w-full mx-auto py-4">
+      <div className="max-w-screen-xl w-full mx-auto py-4 px-3">
         <SliderRelatedRroduk />
       </div>
     </div>
@@ -88,42 +89,3 @@ const StyleTabs = styled.div`
   li div.absolute {
   }
 `;
-
-const data = [
-  {
-    label: 'HTML',
-    value: 'html',
-    desc: `It really matters and then like it really doesn't matter.
-      What matters is the people who are sparked by it. And the people
-      who are like offended by it, it doesn't matter.`,
-  },
-  {
-    label: 'React',
-    value: 'react',
-    desc: `Because it's about motivating the doers. Because I'm here
-      to follow my dreams and inspire other people to follow their dreams, too.`,
-  },
-
-  {
-    label: 'Vue',
-    value: 'vue',
-    desc: `We're not always in the position that we want to be at.
-      We're constantly growing. We're constantly making mistakes. We're
-      constantly trying to express ourselves and actualize our dreams.`,
-  },
-
-  {
-    label: 'Angular',
-    value: 'angular',
-    desc: `Because it's about motivating the doers. Because I'm here
-      to follow my dreams and inspire other people to follow their dreams, too.`,
-  },
-
-  {
-    label: 'Svelte',
-    value: 'svelte',
-    desc: `We're not always in the position that we want to be at.
-      We're constantly growing. We're constantly making mistakes. We're
-      constantly trying to express ourselves and actualize our dreams.`,
-  },
-];

@@ -12,7 +12,7 @@ export interface PropsInertiaBaseInterface {
   auth: AuthInterface;
   settings_app: App.Models.Setting;
   canLogin: boolean;
-  flash: Function;
+  flash: Record<string, any>;
   time_render: number;
   laravelVersion: String;
   phpVersion: String;

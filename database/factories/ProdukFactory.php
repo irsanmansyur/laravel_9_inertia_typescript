@@ -17,7 +17,7 @@ class ProdukFactory extends Factory
     public function definition()
     {
         return [
-            //
+            
         ];
     }
 }

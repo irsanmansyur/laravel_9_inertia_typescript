@@ -19,6 +19,11 @@ class ProdukKategori extends Model
     {
         return $this->hasMany(ProdukKategori::class, "parent_id");
     }
+    public function allChildrens()
+    {
+        return $this->hasMany(ProdukKategori::class, "root_parent");
+    }
+
 
     public function getChildTree()
     {

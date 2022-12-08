@@ -16,10 +16,11 @@ class KategoriController extends Controller
 
     public function list(Request $request)
     {
-        $kategories = ProdukKategori::when($request->type == "all", function () {
-        }, function ($qw) {
-            $qw->with(["childrens" => function ($q) {
-                $q->with("childrens");
+        $kategories = ProdukKategori::when($request->type == "all", function ($qw) {
+            $qw->where(function ($builder) {
+                $builder->where("parent_id", null)->orWhere("parent_id", 0);
+            })->with(["allChildrens" => function ($q) {
+                $q->orWhere("parent_id", "produk_kategoris.id");
             }]);
         })->get();
         return response()->json(["kategories" => $kategories]);

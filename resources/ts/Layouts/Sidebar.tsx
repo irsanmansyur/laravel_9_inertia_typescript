@@ -1,6 +1,6 @@
 import { Link, usePage } from '@inertiajs/inertia-react';
 import React from 'react';
-import { FaProductHunt, FaStoreAlt } from 'react-icons/fa';
+import { FaProductHunt, FaQuoteLeft, FaStoreAlt } from 'react-icons/fa';
 import { BiCategoryAlt } from 'react-icons/bi';
 import route from 'ziggy-js';
 import { AiFillDashboard } from 'react-icons/ai';
@@ -36,6 +36,8 @@ export default function Sidebar({ setting_app, openSideBar, setOpenSideBar }: { 
           <LiSideBar page="Toko/" url={route('toko.master')} text="Toko" icon={<FaStoreAlt className="w-5 h-5 text-inherit" />} />
           <LiSideBar page="Produk/" url={route('produk.master')} text="Produks" icon={<FaProductHunt className="w-5 h-5 text-inherit" />} />
           <LiSideBar page="kategori/master" url={route('produk_kategori.master')} text="Kategori" icon={<BiCategoryAlt className="w-5 h-5 text-inherit" />} />
+          <li className="border-b mx-4 border-b-blue-gray-800"></li>
+          <LiSideBar page="faq" url={route('faq.master')} text="FAQ" icon={<FaQuoteLeft className="w-5 h-5 text-inherit" />} />
         </ul>
       </div>
     </aside>

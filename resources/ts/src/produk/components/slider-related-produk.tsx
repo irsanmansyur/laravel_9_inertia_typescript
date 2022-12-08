@@ -36,9 +36,9 @@ export default function SliderRelatedRroduk() {
       <div className="card-product-header py-3 text-amber-400">
         <span className=" font-bold text-2xl font-sweetly_scentedregular tracking-widest ">You May Also Like</span>
         <div className="link-all top-4">
-          <Link href="#link" className="border-b hover:border-b-brown-500 transition-colors duration-300">
+          {/* <Link href="#link" className="border-b hover:border-b-brown-500 transition-colors duration-300">
             see all
-          </Link>
+          </Link> */}
         </div>
       </div>
       <SwipperStyled className="relative md:px-[20px]">

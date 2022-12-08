@@ -38,6 +38,7 @@ class ComposerStaticInitc7f37875fad43008385d7b8fac8a32b9
         '320163ac6b93aebe3dc25b60a0533d56' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/helpers.php',
         '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
         'c01203beecb6ad4ab68387093161dc71' => __DIR__ . '/../..' . '/app/Helpers/MyHelper.php',
+        '566d5f28cdee80414c36aa99e37548a8' => __DIR__ . '/../..' . '/app/Constanta/index.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -591,6 +592,8 @@ class ComposerStaticInitc7f37875fad43008385d7b8fac8a32b9
         'App\\Http\\Controllers\\Auth\\VerifyEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerifyEmailController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',
+        'App\\Http\\Controllers\\Faq\\FaqApiController' => __DIR__ . '/../..' . '/app/Http/Controllers/Faq/FaqApiController.php',
+        'App\\Http\\Controllers\\Faq\\FaqMasterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Faq/FaqMasterController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\Kategori\\KategoriController' => __DIR__ . '/../..' . '/app/Http/Controllers/Kategori/KategoriController.php',
         'App\\Http\\Controllers\\Produk\\FrontendProdukController' => __DIR__ . '/../..' . '/app/Http/Controllers/Produk/FrontendProdukController.php',
@@ -632,6 +635,7 @@ class ComposerStaticInitc7f37875fad43008385d7b8fac8a32b9
         'App\\Http\\Services\\ProdukService' => __DIR__ . '/../..' . '/app/Http/Services/ProdukService.php',
         'App\\Http\\Services\\TokoService' => __DIR__ . '/../..' . '/app/Http/Services/TokoService.php',
         'App\\Listeners\\SettingUpdateListener' => __DIR__ . '/../..' . '/app/Listeners/SettingUpdateListener.php',
+        'App\\Models\\Faq' => __DIR__ . '/../..' . '/app/Models/Faq.php',
         'App\\Models\\Produk' => __DIR__ . '/../..' . '/app/Models/Produk.php',
         'App\\Models\\ProdukImage' => __DIR__ . '/../..' . '/app/Models/ProdukImage.php',
         'App\\Models\\ProdukKategori' => __DIR__ . '/../..' . '/app/Models/ProdukKategori.php',

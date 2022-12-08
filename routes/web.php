@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Faq\FaqMasterController;
 use App\Http\Controllers\Kategori\KategoriController;
 use App\Http\Controllers\Produk\ProduKController;
 use App\Http\Controllers\Produk\ProdukImageController;
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/dashboard', [DashboardController::class, "index"])->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::prefix("admin/master-kategori")->middleware("auth")->group(function () {
     Route::get('/', [KategoriController::class, "index"])->name('kategori.master');
@@ -71,6 +73,18 @@ Route::prefix("admin/setting")->middleware("auth", "role:super admin")->group(fu
     Route::get('', [SettingController::class, "index"])->name("settings");
     Route::post('/add', [SettingController::class, "store"])->name("settings.add");
     Route::post('/edit/{setting}', [SettingController::class, "update"])->name("settings.edit");
+});
+
+Route::prefix("admin/faq")->middleware("auth", "role:super admin")->group(function () {
+    Route::get('', [FaqMasterController::class, "index"])->name("faq.master");
+    Route::get('create', [FaqMasterController::class, "create"])->name("faq.master.create");
+    Route::post('create', [FaqMasterController::class, "store"]);
+    Route::get('edit/{faq}', [FaqMasterController::class, "edit"])->name("faq.master.edit");
+    Route::post('edit/{faq}', [FaqMasterController::class, "update"]);
+    Route::delete('delete/{faq}', [FaqMasterController::class, "destroy"])->name("faq.master.delete");
+});
+Route::get('test', function () {
+    dd(getSettingApp());
 });
 
 require __DIR__ . '/auth.php';

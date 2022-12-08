@@ -12,7 +12,7 @@ class ProdukKategoryController extends Controller
 {
     public function index()
     {
-        $produk_kategoris = ProdukKategori::withCount("produks")->paginate(20);
+        $produk_kategoris = ProdukKategori::withCount("produks")->latest()->paginate(20);
         return Inertia::render("kategori/master/List", compact("produk_kategoris"));
     }
     public function add()

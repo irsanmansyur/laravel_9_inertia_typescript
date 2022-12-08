@@ -12,6 +12,7 @@ module.exports = withMT({
         sweetly_scentedregular: ['sweetly_scentedregular', ...defaultTheme.fontFamily.sans],
         robotoMono: ['Roboto Mono', 'monospace'],
         patrickHand: ['Patrick Hand', 'cursive'],
+        inconsolata: ['Inconsolata Hand', 'monospace'],
       },
       colors: {
         primary: '#D97706',

@@ -67,6 +67,14 @@ export default function AddSettingPage({ setting }: { setting: resourceLaraveInt
               </div>
               <InputError message={errors['options.logo']} className="mt-2" />
             </div>
+            <div className="flex mt-6">
+              <div className="w-full md:w-1/2 mb-4">
+                <InputGroup error={errors[`options.email`] ?? ''} value={data.options?.email || ''} label="Email App" type="email" onChange={(e: any) => setData('options', { ...data.options, email: e.target.value })} name={'name'} />
+              </div>
+              <div className="w-full md:w-1/2 ">
+                <InputGroup error={errors['options.alamat']} value={data.options?.alamat || ''} label="Alamat" onChange={(e: React.ChangeEvent<HTMLInputElement>) => setData('options', { ...data.options, alamat: e.target.value })} name={'alamat'} />
+              </div>
+            </div>
           </CardBody>
           <CardFooter className="flex  gap-7 pt-2">
             <Button disabled={processing} type="submit">
